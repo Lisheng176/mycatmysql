@@ -28,7 +28,6 @@ import java.util.ResourceBundle;
 
 
 public class PaneController implements Initializable {
-
     @FXML
     private TreeView<String> modelTreeView;
 
