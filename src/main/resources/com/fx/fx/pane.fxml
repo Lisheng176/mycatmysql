@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<SplitPane dividerPositions="0.25" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.fx.fx.PaneController">
+    <items>
+        <TabPane>
+            <tabs>
+                <Tab closable="false" text="模型">
+                    <content>
+                        <BorderPane>
+                            <top>
+                                <HBox alignment="CENTER_LEFT">
+                                    <padding><Insets bottom="5.0" top="5.0"/></padding>
+                                    <Button fx:id="addConnect">
+                                        <styleClass><String fx:value="btn" /><String fx:value="btn-success" /></styleClass>
+                                        添加链接
+                                    </Button>
+                                </HBox>
+                            </top>
+                            <center>
+                                <VBox spacing="4.0">
+                                    <children>
+                                        <HBox>
+                                            <children>
+                                                <MenuButton fx:id="menuButtonDatabase" mnemonicParsing="false" text="All">
+                                                    <items />
+                                                </MenuButton>
+                                                <TextField HBox.hgrow="ALWAYS"/>
+                                                <Button mnemonicParsing="false">
+                                                    <graphic>
+                                                    </graphic>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                        <TreeView fx:id="modelTreeView" VBox.vgrow="ALWAYS" />
+                                    </children>
+                                    <padding>
+                                        <Insets top="4.0"/>
+                                    </padding>
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <SplitPane dividerPositions="0.75" orientation="VERTICAL">
+            <items>
+                <TabPane tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab text="记录">
+                            <content>
+                                <BorderPane>
+                                    <top>
+                                        <VBox>
+                                            <HBox alignment="CENTER_LEFT" spacing="4.0" BorderPane.alignment="CENTER">
+                                                <children>
+                                                    <Label text="启动条件"/>
+                                                    <TextField fx:id="startConditionText" prefWidth="100" text=""/>
+                                                    <Label text="定时启动时间"/>
+                                                    <TextField fx:id="StartTimeText" prefWidth="100" text=""/>
+                                                    <HBox HBox.hgrow="ALWAYS"/>
+                                                    <Label text="是否定时启动勾选栏"/>
+                                                    <CheckBox fx:id="startTimeCheckBox" />
+                                                </children>
+                                                <padding>
+                                                    <Insets bottom="4.0" top="4.0"/>
+                                                </padding>
+                                            </HBox>
+                                            <HBox alignment="CENTER_LEFT" spacing="4.0" BorderPane.alignment="CENTER">
+                                                <children>
+                                                    <Label text="终止条件"/>
+                                                    <TextField fx:id="endConditionText" prefWidth="100" text=""/>
+                                                    <Label text="定时终止时间"/>
+                                                    <TextField fx:id="endTimeText"  prefWidth="100" text=""/>
+                                                    <HBox HBox.hgrow="ALWAYS"/>
+                                                    <Label  text="是否定时终止勾选栏"/>
+                                                    <CheckBox fx:id="endTimeCheckBox"/>
+                                                </children>
+                                                <padding>
+                                                    <Insets bottom="4.0" top="4.0"/>
+                                                </padding>
+                                            </HBox>
+                                            <HBox alignment="CENTER_LEFT" spacing="4.0" BorderPane.alignment="CENTER">
+                                                <children>
+                                                    <Label text="格式"/>
+                                                    <ComboBox fx:id="fileFormatComboBox" prefWidth="100" value="TXT"/>
+                                                    <Label text="路径"/>
+                                                    <TextField fx:id="filePathText" prefWidth="100" text="100s"/>
+                                                    <Label text="时长"/>
+                                                    <TextField fx:id="fileTimeText" prefWidth="100" text="100s"/>
+                                                    <Label text="抽样"/>
+                                                    <TextField fx:id="samplingRatioText" prefWidth="100" text="1/1000"/>
+                                                </children>
+                                                <padding>
+                                                    <Insets bottom="4.0" top="4.0"/>
+                                                </padding>
+                                            </HBox>
+                                        </VBox>
+                                    </top>
+                                    <center>
+                                        <TableView fx:id="dataTable">
+                                            <columns>
+                                                <TableColumn fx:id="variableId" prefWidth="125.0" sortable="false" text="变量ID"/>
+                                                <TableColumn fx:id="variableName" prefWidth="125.0" sortable="false" text="变量名称"/>
+                                                <TableColumn fx:id="variableAlias" prefWidth="125.0" sortable="false" text="变量别名"/>
+                                            </columns>
+                                        </TableView>
+                                    </center>
+                                    <bottom>
+                                        <HBox alignment="CENTER_RIGHT" spacing="4.0" BorderPane.alignment="CENTER">
+                                            <children>
+                                                <Button fx:id="insertButton" text="插入"/>
+                                                <Button fx:id="deleteButton" text="删除"/>
+                                                <Button fx:id="moveUpButton" text="上移"/>
+                                                <Button fx:id="moveDownButton" text="下移"/>
+                                                <Button fx:id="moveTopButton" text="置顶"/>
+                                                <Button fx:id="moveBottomButton" text="置底"/>
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="4.0" top="4.0"/>
+                                            </padding>
+                                        </HBox>
+                                    </bottom>
+                                </BorderPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </items>
+        </SplitPane>
+    </items>
+</SplitPane>
